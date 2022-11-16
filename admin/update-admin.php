@@ -86,7 +86,6 @@ if(isset ($_POST['submit']))
      $sql = "UPDATE tbl_admin SET
       full_name = '$full_name',
       username = '$username'
-
       WHERE id = '$id'
      
      ";
