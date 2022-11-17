@@ -115,7 +115,7 @@
 
                     $total = $price * $qty; // total = price x qty
 
-                    $order_date = date("Y-m-d h:i:sa"); //Order Date
+                    $order_date = date( 'Y-M-D h:i:sa', );; //Order Date
 
                     $status = "Ordered"; //Ordered, On Delivery, Delivered, Cancelled
 
