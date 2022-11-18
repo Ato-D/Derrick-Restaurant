@@ -79,7 +79,7 @@
                             {
                                 echo "<label>$status</label>";
                             }
-                            elseif($status=="On delivery")
+                            elseif($status=="On Delivery")
                             {
                                 echo "<label style='color: orange;'>$status</label>";
                             }
