@@ -58,9 +58,15 @@ if(isset($_POST['submit']))
       //echo "Button Clicked";
 
     //1. Get the Data from FORM
-    $full_name = $_POST['full_name'];
-    $username = $_POST['username'];
-    $password = md5($_POST['password']); //Password Encrypted with MD5
+    //$full_name = $_POST['full_name'];
+    //$username = $_POST['username'];
+    //$password = md5($_POST['password']); //Password Encrypted with MD5
+
+    $full_name = mysqli_real_escape_string($conn, $_POST['full_name']);
+    $username = mysqli_real_escape_string($conn, $_POST['username']);
+    
+    $raw_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $raw_password);
 
     //2. SQL query to save the Data into database
     $sql = "INSERT INTO tbl_admin SET

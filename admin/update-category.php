@@ -122,8 +122,8 @@
             //echo "Clicked";
             //Get all the values from our form
 
-            $id = $_POST['id'];
-            $title = $_POST['title'];
+            $id = mysqli_real_escape_string($conn, $_POST['id']);
+            $title = mysqli_real_escape_string($conn, $_POST['title']);
             $current_image = $_POST['current_image'];
             $featured = $_POST['featured'];
             $active = $_POST['active'];

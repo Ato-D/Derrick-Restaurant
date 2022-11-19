@@ -9,7 +9,7 @@
             <?php
                 if(isset($_GET['id'])) 
                 {
-                    $id = $_GET['id'];
+                    $id = mysqli_real_escape_string($conn, $_GET['id']);
                 }
             
             
@@ -61,10 +61,20 @@
     //echo "Clicked";
 
     //1. Get the Data from FORM
-    $id = $_POST['id'];
-    $current_password =md5 ($_POST['current_password']);
-    $new_password =md5 ($_POST['new_password']);
-    $confirm_password =md5 ($_POST['confirm_password']);
+    //$id = $_POST['id'];
+    //$current_password =md5 ($_POST['current_password']);
+    //$new_password =md5 ($_POST['new_password']);
+    //$confirm_password =md5 ($_POST['confirm_password']);
+
+    $id = mysqli_real_escape_string($conn, $_POST['id']);
+    $current_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $current_password);
+
+    $new_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $new_password);
+
+    $confirm_password = md5($_POST['password']);
+    $password = mysqli_real_escape_string($conn, $confirm_password);
 
     //2. Check whether the user with current ID and current Password Exits or Not
     $sql = "SELECT * FROM tbl_admin WHERE id = $id AND password = '$current_password'"; 

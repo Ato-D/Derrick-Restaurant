@@ -177,10 +177,10 @@
                 //echo "Button Clicked";
 
                 //1. Get all the details from the form
-                $id = $_POST['id'];
-                $title = $_POST['title'];
-                $description = $_POST['description'];
-                $price = $_POST['price'];
+                $id = mysqli_real_escape_string($conn, $_POST['id']);
+                $title = mysqli_real_escape_string($conn, $_POST['title']);
+                $description = mysqli_real_escape_string($conn, $_POST['description']);
+                $price = mysqli_real_escape_string($conn, $_POST['price']);
                 $current_image = $_POST['current_image'];
                 $category = $_POST['category'];
 

@@ -109,20 +109,20 @@
                  if(isset($_POST['submit']))
                  {
                     //Get all the details from the form
-                    $food = $_POST['food'];
-                    $price = $_POST['price'];
-                    $qty = $_POST['qty'];
+                    $food = mysqli_real_escape_string($conn, $_POST['food']);
+                    $price = mysqli_real_escape_string($conn, $_POST['price']);
+                    $qty = mysqli_real_escape_string($conn, $_POST['qty']);
 
                     $total = $price * $qty; // total = price x qty
 
-                    $order_date = date( 'Y-M-D h:i:sa', );; //Order Date
+                    $order_date = date("Y/m/d h:i:sa"); //Order Date
 
                     $status = "Ordered"; //Ordered, On Delivery, Delivered, Cancelled
 
-                    $customer_name = $_POST['full-name'];
-                    $customer_contact = $_POST['contact'];
-                    $customer_email = $_POST['email'];
-                    $customer_address = $_POST['address'];
+                    $customer_name = mysqli_real_escape_string($conn, $_POST['full-name']);
+                    $customer_contact = mysqli_real_escape_string($conn, $_POST['contact']);
+                    $customer_email = mysqli_real_escape_string($conn, $_POST['email']);
+                    $customer_address = mysqli_real_escape_string($conn, $_POST['address']);
 
                     //Save the orer In Database
                     //Create SQL to save database

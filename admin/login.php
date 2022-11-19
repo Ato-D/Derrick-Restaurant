@@ -53,8 +53,12 @@
       {
         //Process for Login
         //1. Get the Data from Login Form
-        $username = $_POST['username'];
-        $password = md5($_POST['password']);
+        //$username = $_POST['username'];
+        //$password = md5($_POST['password']);
+        $username = mysqli_real_escape_string($conn, $_POST['username']);
+
+        $raw_password = md5($_POST['password']);
+        $password = mysqli_real_escape_string($conn, $raw_password);
 
         // 2. SQL to  Check whether the user with username and password exits or not
         $sql = "SELECT * FROM tbl_admin WHERE username='$username' AND password='$password' ";
@@ -79,7 +83,7 @@
             //User not Available and Login Failed
             $_SESSION['login'] = "<div class='error text-center'>Username or Password did not match</div>";
             //Redirect to HOME PAGE/DASHBOARD 
-            header("location:' .SITEURL.admin/login.php'");
+            header('location:' .SITEURL.'admin/login.php');
         }
          
      }

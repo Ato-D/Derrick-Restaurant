@@ -11,7 +11,7 @@
              if(isset($_GET['id']))
              {
                 //Get the Order Details
-                $id=$_GET['id'];
+                $id=mysqli_real_escape_string($conn, $_GET['id']);
 
                 //Get all other deatils beased on id
                 //SQL query to get the order details
@@ -132,9 +132,9 @@
              {
                 //echo "clicked";
                 //get All the Values from Form
-                $id = $_POST['id'];
-                $price = $_POST['price'];
-                $qty = $_POST['qty'];
+                $id = mysqli_real_escape_string($conn, $_POST['id']);
+                $price = mysqli_real_escape_string($conn, $_POST['price']);
+                $qty = mysqli_real_escape_string($conn, $_POST['qty']);
 
                 $total = $price * $qty; // total = price x qty
 

@@ -5,7 +5,8 @@
         <div class="container">
             <?php
                 //Get the search keyword
-                $search = $_POST['search']; 
+                //$search = $_POST['search']; 
+                $search = mysqli_real_escape_string($conn, $_POST['search']); //This will escape all SQL Queries and All Unwanted Things And Convert them into String Value Only And Protect  Us From Sql Injections
             
             ?>
             

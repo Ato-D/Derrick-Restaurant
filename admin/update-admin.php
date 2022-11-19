@@ -78,9 +78,9 @@ if(isset ($_POST['submit']))
 {
     //echo "Button Clicked";
     //Get all the values fro FORm to update
-     $id = $_POST['id'];
-     $full_name = $_POST['full_name'];
-     $username = $_POST['username']; 
+     $id = mysqli_real_escape_string($conn, $_POST['id']);
+     $full_name = mysqli_escape_string($conn, $_POST['full_name']);
+     $username = mysqli_escape_string($conn, $_POST['username']); 
 
      //Create a SQL to query to udate Admim
      $sql = "UPDATE tbl_admin SET
